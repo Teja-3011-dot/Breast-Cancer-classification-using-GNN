@@ -1,0 +1,119 @@
+# Breast Cancer Classification using Graph Neural Networks
+
+---
+
+## Overview
+
+This project applies a Graph Convolutional Network (GCN) to the task of breast tumor classification. Each patient in the Wisconsin Diagnostic Breast Cancer dataset is represented as a node in a k-nearest-neighbor graph, where edges connect patients with similar diagnostic profiles. The GCN learns over this graph structure to classify each node as benign or malignant.
+
+An interactive Streamlit dashboard allows users to explore the dataset, inspect the graph structure, and run predictions on custom patient feature inputs.
+
+---
+
+## Project Structure
+
+```
+Breast-Cancer-classification-using-GNN/
+│
+├── app.py                  # Streamlit application
+├── models/
+│   └── gnn_model.py        # GCN model definition
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/Teja-3011-dot/Breast-Cancer-classification-using-GNN.git
+cd Breast-Cancer-classification-using-GNN
+
+# Create and activate a virtual environment
+python -m venv .venv
+
+# Windows
+.venv\Scripts\activate
+
+# macOS / Linux
+source .venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+---
+
+## Running the Application
+
+```bash
+streamlit run app.py
+```
+
+Navigate to [http://localhost:8501](http://localhost:8501) in your browser.
+
+---
+
+## Model Architecture
+
+The GCN consists of two graph convolutional layers followed by a linear classifier.
+
+```
+Input (30 features)
+     |
+  GCNConv -> ReLU
+     |
+  GCNConv -> ReLU
+     |
+  Linear -> Output (2 classes)
+```
+
+The graph is constructed using `sklearn.neighbors.kneighbors_graph` with k=5, connecting each patient node to its five nearest neighbors in feature space. Node features are the 30 standardised diagnostic measurements. The model is trained as a node classification task.
+
+---
+
+## Dataset
+
+The project uses the [Breast Cancer Wisconsin (Diagnostic)](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html) dataset, available directly through scikit-learn.
+
+| Property   | Value                          |
+|------------|--------------------------------|
+| Samples    | 569                            |
+| Features   | 30                             |
+| Classes    | Benign (357), Malignant (212)  |
+
+Features include measurements such as radius, texture, perimeter, area, and smoothness, computed from digitised images of fine needle aspirate (FNA) biopsies.
+
+---
+
+## Dependencies
+
+```
+streamlit
+torch
+torch-geometric
+scikit-learn
+numpy
+matplotlib
+networkx
+```
+
+To generate a `requirements.txt` from your environment:
+
+```bash
+pip freeze > requirements.txt
+```
+
+---
+
+## Disclaimer
+
+This project is intended for educational and research purposes only. It should not be used as a substitute for professional medical diagnosis, clinical judgment, or treatment advice.
+
+---
+
+## Author
+
+Teja — [github.com/Teja-3011-dot](https://github.com/Teja-3011-dot)
