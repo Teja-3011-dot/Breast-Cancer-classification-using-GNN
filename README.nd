@@ -1,14 +1,23 @@
-Breast Cancer Classification using Graph Neural Networks
+# Breast Cancer Classification using Graph Neural Networks
 
-Overview
+![Python](https://img.shields.io/badge/Python-3.10+-blue?style=flat-square&logo=python)
+![PyTorch](https://img.shields.io/badge/PyTorch-Geometric-EE4C2C?style=flat-square&logo=pytorch)
+![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?style=flat-square&logo=streamlit)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
+
+---
+
+## Overview
 
 This project applies a Graph Convolutional Network (GCN) to the task of breast tumor classification. Each patient in the Wisconsin Diagnostic Breast Cancer dataset is represented as a node in a k-nearest-neighbor graph, where edges connect patients with similar diagnostic profiles. The GCN learns over this graph structure to classify each node as benign or malignant.
+
 An interactive Streamlit dashboard allows users to explore the dataset, inspect the graph structure, and run predictions on custom patient feature inputs.
 
 ---
 
-Project Structure
+## Project Structure
 
+```
 Breast-Cancer-classification-using-GNN/
 │
 ├── app.py                  # Streamlit application
@@ -16,9 +25,11 @@ Breast-Cancer-classification-using-GNN/
 │   └── gnn_model.py        # GCN model definition
 ├── requirements.txt
 └── README.md
+```
+
 ---
 
-Installation
+## Installation
 
 ```bash
 # Clone the repository
@@ -39,7 +50,8 @@ pip install -r requirements.txt
 ```
 
 ---
-Running the Application
+
+## Running the Application
 
 ```bash
 streamlit run app.py
@@ -49,7 +61,7 @@ Navigate to [http://localhost:8501](http://localhost:8501) in your browser.
 
 ---
 
-Model Architecture
+## Model Architecture
 
 The GCN consists of two graph convolutional layers followed by a linear classifier.
 
@@ -67,7 +79,7 @@ The graph is constructed using `sklearn.neighbors.kneighbors_graph` with k=5, co
 
 ---
 
-Dataset
+## Dataset
 
 The project uses the [Breast Cancer Wisconsin (Diagnostic)](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html) dataset, available directly through scikit-learn.
 
@@ -81,7 +93,7 @@ Features include measurements such as radius, texture, perimeter, area, and smoo
 
 ---
 
-Dependencies
+## Dependencies
 
 ```
 streamlit
@@ -101,7 +113,7 @@ pip freeze > requirements.txt
 
 ---
 
-Disclaimer
+## Disclaimer
 
 This project is intended for educational and research purposes only. It should not be used as a substitute for professional medical diagnosis, clinical judgment, or treatment advice.
 
