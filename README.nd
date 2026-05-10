@@ -1,0 +1,26 @@
+# Breast Cancer Classification using GNN
+
+This project performs breast cancer classification using a Graph Neural Network (GCN) built with PyTorch Geometric.
+
+## Features
+
+- Breast cancer dataset classification
+- Graph construction using KNN
+- GCN architecture
+- Accuracy evaluation
+- t-SNE embedding visualization
+- Graph visualization
+
+## Technologies Used
+
+- PyTorch
+- PyTorch Geometric
+- Scikit-learn
+- NetworkX
+- Matplotlib
+
+## Run Project
+
+```bash
+pip install -r requirements.txt
+python train.py
